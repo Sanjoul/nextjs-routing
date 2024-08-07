@@ -22,7 +22,20 @@ export function GET() {
   return NextResponse.json(users);
 }
 
-export function POST() {}
+export async function POST(request) {
+  const body = request.body;
+  console.log(body);
+
+  const data = await request.json();
+  console.log(data);
+  console.log(request.headers);
+  console.log(request.cookies);
+  console.log(request.method);
+  return NextResponse.json({
+    message: "testing user data post method ",
+    data: data,
+  });
+}
 
 export function DELETE(request) {
   console.log("delete api called");
